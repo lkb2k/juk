@@ -1,0 +1,14 @@
+{
+  "name": "juk",
+  "version": "1.0.0",
+  "description": "Raspberry Pi Jukebox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lorin Kobashigawa-Bates",
+  "license": "ISC",
+  "dependencies": {
+    "spotify-web-api-node": "^3.1.1"
+  }
+}
