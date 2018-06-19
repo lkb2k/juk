@@ -9,6 +9,9 @@
   "author": "Lorin Kobashigawa-Bates",
   "license": "ISC",
   "dependencies": {
-    "spotify-web-api-node": "^3.1.1"
+    "dotenv": "^6.0.0",
+    "npm": "^6.1.0",
+    "spotify-web-api-node": "git+ssh://git@github.com/thelinmichael/spotify-web-api-node.git",
+    "superagent": "^3.8.3"
   }
 }

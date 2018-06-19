@@ -1,14 +1,8 @@
-var SpotifyWebApi = require('spotify-web-api-node');
+const SpotifyWebApi = require('spotify-web-api-node');
+const env = require('./env');
 
-// credentials are optional
-var spotifyApi = new SpotifyWebApi({
-  clientId: 'f4e5e94a0eb84444af47c70ee85a8434',
-  redirectUri: 'http://localhost/callback'
-});
-
-var scopes = ['user-read-private', 'streaming', 'user-modify-playback-state', 'user-read-playback-state', 'user-read-currently-playing', 'playlist-read-private'];
-var state = 'not-sure-what-this-is';
+var spotify = new SpotifyWebApi(env.spotify.credentials);
 
 // Create the authorization URL
-var authorizeURL = spotifyApi.createAuthorizeURL(scopes,state);
+var authorizeURL = spotify.createAuthorizeURL(env.spotify.scopes);
 console.log(authorizeURL);

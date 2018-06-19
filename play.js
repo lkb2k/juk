@@ -1,11 +1,11 @@
-var SpotifyWebApi = require('spotify-web-api-node');
+const env = require('./env');
+const SpotifyWebApi = require('spotify-web-api-node');
+var spotifyAPI = new SpotifyWebApi(env.spotify.credentials);
 
-var spotifyApi = new SpotifyWebApi();
-
-spotifyApi.refreshAccessToken().then(function(data) {
+spotifyAPI.refreshAccessToken().then(function(data) {
     console.log('Retrieved data for ' + JSON.stringify(data.body));  
-    spotifyApi.setAccessToken(data.body['access_token']);
-    return spotifyApi.pause();
+    spotifyAPI.setAccessToken(data.body['access_token']);
+    return spotifyAPI.play();
 }).then(function(data) {    
     console.log('Retrieved data for ' + JSON.stringify(data.body));
   })

@@ -1,11 +1,9 @@
+require('dotenv').config()
 const url = require('url');
 const SpotifyWebApi = require('spotify-web-api-node');
+const env = require('./env');
 
-var spotifyApi = new SpotifyWebApi({
-    clientId: 'f4e5e94a0eb84444af47c70ee85a8434',
-    clientSecret: '8eed3a7e891d4641ae1dac67ecc3de84',
-    redirectUri: 'http://localhost/callback'
-});
+var spotifyApi = new SpotifyWebApi(env.spotify.credentials);
 
 var redirectURL = url.parse(process.argv[2], true);
 var code = redirectURL.query['code'];
