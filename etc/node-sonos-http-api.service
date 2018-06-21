@@ -1,0 +1,14 @@
+[Unit]
+Description=NodeJS HTTP Api for Sonos
+Documentation=http://jishi.github.io/node-sonos-http-api/
+After=network.target
+
+[Service]
+Environment=NODE_PORT=5005
+Type=simple
+User=root
+ExecStart=/usr/local/bin/node /opt/node-sonos-http-api/server.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
