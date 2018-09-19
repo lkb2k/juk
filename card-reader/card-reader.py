@@ -9,8 +9,18 @@ from Sonos import Sonos
 
 cardDB = CardDB()
 sonos = Sonos()
-
 reader = SimpleMFRC522.SimpleMFRC522()
+
+#init the buzzer
+buzzer = 18
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(buzzer, GPIO.OUT)
+
+
+def beep():
+	GPIO.output(buzzer, GPIO.HIGH)
+	time.sleep(0.2)
+	GPIO.output(buzzer, GPIO.LOW)
 
 try:
 	while True:
@@ -19,6 +29,7 @@ try:
 			print(datetime.datetime.now().isoformat()+ ':' + str(id))
 			playlist = cardDB.getPlaylist(str(id))
 			if playlist:			
+				beep()
 				print(playlist)
 				sonos.play(playlist)
 				time.sleep(2) #debounce
@@ -28,7 +39,7 @@ try:
 			time.sleep(0.2)	 
 		except OSError as e:
 			print "Execution failed:" 
-			time.sleep(0.2)	
+			time.sleep(0.2) 
 
 finally:
 	print("cleaning up")

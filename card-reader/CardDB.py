@@ -4,7 +4,7 @@ import sys
 
 class CardDB:
 	def __init__(self):
-		self.path = os.path.dirname(os.path.realpath(__file__))
+		self.path = '/var/cache/juk'
 		self.cardList = self.load()
         
 	def load(self):

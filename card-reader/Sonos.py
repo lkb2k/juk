@@ -6,6 +6,7 @@ class Sonos:
 	def __init__(self):
 		self.host = 'http://localhost:5005'
 		self.room = 'Living%20Room'
+		self.endpoint = self.host+'/'+self.room
 		self.playing = ''
 		self.lastUpdate = time.time()
 
@@ -19,8 +20,10 @@ class Sonos:
 	
 		self.playing = uri
 		self.lastUpdate = time.time()
-		endpoint = self.host+'/'+self.room
+
 		playlist = 'spotify/now'+'/'+uri
-		urllib2.urlopen(endpoint+'/'+'clearqueue')
-		urllib2.urlopen(endpoint+'/'+playlist)
+		urllib2.urlopen(self.endpoint+'/'+'clearqueue')
+		urllib2.urlopen(self.endpoint+'/'+playlist)
 	
+	def next(self):
+		urllib2.urlopen(self.endpoint+'/next')		
