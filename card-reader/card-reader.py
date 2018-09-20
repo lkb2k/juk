@@ -13,13 +13,14 @@ reader = SimpleMFRC522.SimpleMFRC522()
 
 #init the buzzer
 buzzer = 18
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(buzzer, GPIO.OUT)
 
 
 def beep():
 	GPIO.output(buzzer, GPIO.HIGH)
-	time.sleep(0.2)
+	time.sleep(0.1)
 	GPIO.output(buzzer, GPIO.LOW)
 
 try:
