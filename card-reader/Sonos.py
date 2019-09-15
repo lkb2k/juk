@@ -23,6 +23,7 @@ class Sonos:
 
 		playlist = 'spotify/now'+'/'+uri
 		urllib2.urlopen(self.endpoint+'/'+'clearqueue')
+		urllib2.urlopen(self.endpoint+'/'+'shuffle/on')
 		urllib2.urlopen(self.endpoint+'/'+playlist)
 	
 	def next(self):

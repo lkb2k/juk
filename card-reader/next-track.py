@@ -16,7 +16,8 @@ def beep():
 last_pressed = time.time()
 while True:
     now = time.time()
-    if GPIO.input(24) and now - last_pressed > .5:
+    pressed =  not GPIO.input(24)
+    if pressed and now - last_pressed > .5:
 	last_pressed = now
-	beep()
+        print("Next track pressed")
         sonos.next()

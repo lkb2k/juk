@@ -1,0 +1,12 @@
+[Unit]
+Description=Album Art Updater
+After=network.target node-sonos-http-api.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python /opt/juk/album-art/fetch-img.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
